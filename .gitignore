@@ -1,0 +1,13 @@
+myenv/
+__pychache__/
+instance/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+*.log
+*.env
+.env.*
+venv/
+env/
