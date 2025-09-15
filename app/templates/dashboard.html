@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Bug Tracker{% endblock %}
+
+{% block content %}
+<h2>Your Tasks</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('main.create_task') }}" class="btn btn-primary">Create New Task</a>
+{% endblock %}

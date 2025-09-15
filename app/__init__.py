@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
 from .config import Config
-from .routes import bp as routes_bp
+
 db = SQLAlchemy()
 jwt = JWTManager()
 
@@ -15,8 +15,7 @@ def create_app():
     
     db.init_app(app)
     jwt.init_app(app)
-
- 
+    from .routes import bp as routes_bp
     app.register_blueprint(routes_bp)
 
     return app

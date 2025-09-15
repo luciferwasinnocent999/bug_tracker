@@ -7,5 +7,6 @@ app = create_app()
 @app.cli.command("init-db")
 @with_appcontext
 def init_db():
+    db.drop_all()
     db.create_all()
     click.echo("Initialized the database.")

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Edit User - Bug Tracker{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Edit User</h2>
+
+<form method="POST" action="{{ url_for('main.update_user', user_id=user.id) }}">
+    <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" value="{{ user.username }}" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">New Password (leave blank to keep current)</label>
+        <input type="password" name="password" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Role</label>
+        <select name="role" class="form-select">
+            <option value="developer" {% if user.role == 'developer' %}selected{% endif %}>Developer</option>
+            <option value="tester" {% if user.role == 'tester' %}selected{% endif %}>Tester</option>
+            <option value="admin" {% if user.role == 'admin' %}selected{% endif %}>Admin</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Update User</button>
+    <a href="{{ url_for('main.admin_dashboard') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

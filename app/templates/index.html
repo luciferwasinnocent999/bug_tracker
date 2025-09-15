@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Home - Bug Tracker{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="display-4 mb-4">Welcome to Bug Tracker</h1>
+    <p class="lead">Manage bugs efficiently with role-based access for Admins and Developers</p>
+    <hr class="my-4">
+    <div class="d-flex justify-content-center gap-3 mt-4">
+        <a href="{{ url_for('main.register_page') }}" class="btn btn-primary btn-lg">Register</a>
+        <a href="{{ url_for('main.login_page') }}" class="btn btn-success btn-lg">Login</a>
+    </div>
+</div>
+{% endblock %}
